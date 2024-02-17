@@ -20,8 +20,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Gulzar&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -49,12 +48,13 @@
     <div class="landing">
         <div class="container">
             <div class="text">
-                <h1>أهلا بكم في حروف <span class="gulzar-regular c-black">الخطاط</span></h1>
+                <h1>أهلا بكم في حروف <span class="gulzar-regular c-white">الخطاط</span></h1>
                 <p>سواء كنت تبحث عن تصميم فريد لعلامتك التجارية أو هدية مميزة تعبّر عن مشاعرك، فإننا نقدم لك خدمات
                     متنوعة ومتكاملة.</p>
             </div>
             <div class="image">
-                <img src="Images/landingImg2.png" alt="Landing Image">
+                <img class="fixed" src="Images/Outdoor-people-1.png" alt="Landing Image">
+                <img class="moving" src="Images/Outdoor-Sign-2.png" alt="Landing Image">
             </div>
         </div>
         <a href="#aboutus"><i class="fas fa-angle-double-down fa-2x"></i></a>
@@ -125,7 +125,7 @@
                 </div>
             </div>
             <div class="articleBox">
-                <img src="Images/vinyleBanners1.jpg" alt="article img">
+                <img src="Images/GlassTrophy.jpg" alt="article img">
                 <h3>بنرات وفينيل</h3>
                 <p>هذه بعض التفاصيل عن الخدمة</p>
                 <div class="readMore">
@@ -152,7 +152,7 @@
                 </div>
             </div>
             <div class="articleBox">
-                <img src="Images/ArabicCalig.jpg" alt="article img">
+                <img src="Images/CarsMock.jpg" alt="article img">
                 <h3>خطاط</h3>
                 <p>هذه بعض التفاصيل عن الخدمة</p>
                 <div class="readMore">
@@ -227,7 +227,16 @@
                     <img src="Images/logoDummy1.jpg" alt="client1" class="clientLogo">
                 </div>
                 <div class="oneClient">
+                    <img src="Images/logoDummy1.jpg" alt="client1" class="clientLogo">
+                </div>
+                <div class="oneClient">
+                    <img src="Images/logoDummy1.jpg" alt="client1" class="clientLogo">
+                </div>
+                <div class="oneClient">
                     <img src="Images/herofalkhatat-logo.png" alt="client1" class="clientLogo">
+                </div>
+                <div class="oneClient">
+                    <img src="Images/logoDummy2.jpg" alt="client1" class="clientLogo">
                 </div>
                 <div class="oneClient">
                     <img src="Images/logoDummy2.jpg" alt="client1" class="clientLogo">
@@ -236,6 +245,39 @@
                     <img src="Images/logoDummy3.jpg" alt="client1" class="clientLogo">
                 </div>
             </div>
+
+            <div class="clientblock-slide">
+
+                <!-- <div class="mySlides fade"> -->
+                <div class="mySlides fade oneClient">
+                    <img src="Images/logoDummy1.jpg" class="clientLogo">
+                </div>
+                <div class="mySlides fade oneClient">
+                    <img src="Images/logoDummy2.jpg" class="clientLogo">
+                </div>
+                <div class="mySlides fade oneClient">
+                    <img src="Images/logoDummy3.jpg" class="clientLogo">
+                </div>
+                <div class="mySlides fade oneClient">
+                    <img src="Images/logoDummy1.jpg" class="clientLogo">
+                </div>
+                <div class="mySlides fade oneClient">
+                    <img src="Images/herofalkhatat-logo.png" class="clientLogo">
+                </div>
+                <div>
+                    <a class="prev" onclick="plusSlides(-1)">❮</a>
+                    <a class="next" onclick="plusSlides(1)">❯</a>
+                </div>
+
+                <div style="text-align:center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                </div>
+            </div>
+
         </div>
     </section>
     <!-- End Clients -->
@@ -293,10 +335,8 @@
         </div>
     </footer>
     <!-- End Footer -->
-
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script> -->
+    <script src="js/script.js"></script>
 </body>
+
 
 </html>

@@ -28,12 +28,14 @@ html {
 }
 
 body {
-    font-family: "Almarai", sans-serif;
-    font-weight: 300;
+    font-family: "Cairo", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
     font-style: normal;
     color: black;
     font-size: 18px;
     line-height: 1.75;
+    /* font-variation-settings: "slnt" 0; */
 
 }
 
@@ -75,7 +77,7 @@ section>.sectionHead>h2 {
     text-transform: uppercase;
     background-image: linear-gradient(to left, transparent 0% 25%, var(--main-color) 25% 50%) linear-gradient(to right, white 0% 25%, var(--main-color) 25% 50%);
     background-size: 200%;
-    color: var(--main-color);
+    color: var(--gray-color);
     background-position: 100% 50%;
     z-index: 1;
 }
@@ -88,10 +90,16 @@ section>.sectionHead>h2::after {
     transform: translateY(-50%);
     width: 15px;
     height: 15px;
-    background-color: var(--main-color);
+    background-color: var(--gray-color);
     border-radius: 50%;
     z-index: -1;
 }
+
+section#aboutus>.sectionHead>h2,
+section#gallery>.sectionHead>h2 {
+    color: var(--main-color);
+}
+
 
 section>.sectionHead>h2::before {
     left: -40px;
@@ -102,8 +110,8 @@ section>.sectionHead>h2::after {
 }
 
 section>.sectionHead>h2:hover {
-    color: white;
-    border: 2px solid white;
+    color: var(--main-color);
+    border: 2px solid var(--main-color);
     transition-delay: 0.7s;
 }
 
@@ -154,7 +162,9 @@ section>.sectionHead>h2:hover::after {
 
 header {
     background-color: white;
-    box-shadow: 0 0 10px var(--gray-text);
+    box-shadow: 0 0 10px var(--main-color);
+    position: relative;
+    z-index: 2;
 }
 
 header .container {
@@ -165,8 +175,8 @@ header .container {
 }
 
 .logo-Header {
-    height: 100px;
-    padding-top: 18px;
+    height: 110px;
+    padding-top: 22px;
     margin-left: 10px;
 }
 
@@ -249,12 +259,14 @@ header nav>ul>li>a:hover::before {
 /* Start Landing */
 .landing {
     position: relative;
+    background-color: black;
 }
 
+/* 
 .landing::before {
     content: "";
     position: absolute;
-    background-color: var(--gray-color);
+    background-color: black;
     transform: skewY(-6deg);
     top: 0;
     width: 100%;
@@ -262,7 +274,7 @@ header nav>ul>li>a:hover::before {
     z-index: -1;
     transform-origin: top left;
 
-}
+} */
 
 .landing .container {
     display: flex;
@@ -284,7 +296,7 @@ header nav>ul>li>a:hover::before {
 
 .landing .container .text p {
     font-size: 1.1em;
-    color: #666666;
+    color: white;
 }
 
 
@@ -292,32 +304,51 @@ header nav>ul>li>a:hover::before {
     max-width: 600px;
 }
 
-.landing .container .image img {
-    width: 100%;
-    animation: upAndDdown 2.7s ease-in-out infinite;
+.landing .container .image .fixed {
+    width: 60%;
+    position: relative;
+    top: 650px;
+    right: -65px;
 }
+
+.landing .container .image .moving {
+    position: relative;
+    animation: upAndDdown 2.7s ease-in-out infinite;
+    top: -180px;
+    width: 110%;
+}
+
 
 @media (max-width: 999px) {
     .landing .container {
         min-height: calc(100vh - 120px);
         flex-direction: column;
         justify-content: center;
+        text-align: center;
     }
 
     .landing .container .text {
-        text-align: center;
         padding-top: 10%;
         padding-bottom: 25%;
     }
 
     .landing .container .text h1 {
         font-size: 1.5em;
+
     }
 
     .landing .container .text p {
         font-size: 1em;
     }
 
+    .landing .container .image .fixed {
+        display: none;
+    }
+
+    .landing .container .image .moving {
+        top: 0;
+        width: 90%;
+    }
 }
 
 .landing a {
@@ -412,7 +443,7 @@ section#aboutus .container .imgContainer img {
 
 /* Start Services */
 section#services {
-    background-color: var(--gray-color);
+    background-color: var(--main-color);
 }
 
 section#services .container {
@@ -553,7 +584,7 @@ section#gallery .container .galleryImages .galleryImg:hover img {
 /* Start supscribe */
 section#supscribe {
     position: relative;
-    background-color: var(--main-color);
+    background-color: var(--gray-text);
 }
 
 section#supscribe .container {
@@ -612,7 +643,7 @@ section#supscribe .container form button:hover {
 
 /* Start clients */
 section#clients {
-    background-color: var(--gray-color);
+    background-color: var(--main-color);
 }
 
 section#clients .container .clientblock {
@@ -649,6 +680,111 @@ section#clients .clientLogo {
     filter: grayscale(100%);
     transition: 0.3s;
 }
+
+/* image logo slide */
+
+section#clients .mySlides {
+    display: none
+}
+
+section#clients img {
+    vertical-align: middle;
+}
+
+/* Slideshow container */
+section#clients .clientblock-slide {
+    display: none;
+    max-width: 700px;
+    position: relative;
+    margin: auto;
+}
+
+/* Next & previous buttons */
+section#clients .prev,
+section#clients .next {
+    cursor: pointer;
+    position: absolute;
+    top: 30%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+section#clients .next {
+    left: 20px;
+    border-radius: 3px 0 0 3px;
+}
+
+section#clients .prev {
+    right: 20px;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+section#clients .prev:hover,
+section#clients .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* The dots/bullets/indicators */
+section#clients .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+section#clients .active,
+section#clients .dot:hover {
+    background-color: #717171;
+}
+
+/* Fading animation */
+section#clients .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+/* On smaller screens, decrease text size */
+@media (max-width: 767px) {
+    section#clients .container .clientblock {
+        display: none
+    }
+
+    section#clients .clientblock-slide {
+        display: block
+    }
+
+    section#clients .clientLogo {
+        transform: translateY(-25%);
+    }
+
+    .prev,
+    .next {
+        font-size: 11px
+    }
+}
+
 
 
 /* End clients */
